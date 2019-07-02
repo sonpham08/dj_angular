@@ -1,15 +1,32 @@
 import django_filters
 from .models import User
+import coreapi
+import coreschema
+from django_filters.rest_framework import DjangoFilterBackend
 
-class UserFilter(django_filters.FilterSet):
-    class Meta:
-        model = User
-        # fields = ['cmnd']
+class UserFilter(DjangoFilterBackend):
+    """
+    Overrides get_schema_fields() to show filter_fields in Swagger.
+    """
 
-    # @property
-    # def qs(self):
-    #     parent = super(UserFilter, self).qs
-    #     author = getattr(self.request, 'user', None)
+    def get_schema_fields(self, view):
+        assert (
+            coreapi is not None
+        ), "coreapi must be installed to use `get_schema_fields()`"
+        assert (
+            coreschema is not None
+        ), "coreschema must be installed to use `get_schema_fields()`"
 
-    #     return parent.filter(is_published=True) \
-    #         | parent.filter(author=author)
+        # append filter fields to existing fields
+        fields = super().get_schema_fields(view)
+        if hasattr(view, "filter_fields"):
+            fields += view.filter_fields
+
+        return [
+            coreapi.Field(
+                name=field,
+                location='query',
+                required=False,
+                type='string',
+            ) for field in fields
+        ]

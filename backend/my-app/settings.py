@@ -54,10 +54,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    # 'drf_yasg',
+    'drf_yasg',
     'user',
     'product',
-    'rest_framework_swagger',
+    # 'rest_framework_swagger',
     'rest_framework',
     'django_filters',
 ]
@@ -153,3 +153,22 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# drf-yasg
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': '/login',
+    'LOGOUT_URL': '/logout',
+
+    'DEFAULT_INFO': 'my-app.urls.swagger_info',
+
+    'SECURITY_DEFINITIONS': {
+        'Basic': {
+            'type': 'basic'
+        },
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
