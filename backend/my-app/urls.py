@@ -20,9 +20,8 @@ from product.views import *
 # from rest_framework.documentation import include_docs_urls
 # from rest_framework_swagger.views import get_swagger_view
 from user import urls
-# from .views import schema_view
-
-# schema_view = get_swagger_view(title="Swagger Docs")
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
@@ -61,3 +60,5 @@ urlpatterns = [
     url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
 ]
 
+if settings.DEBUG:
+  urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

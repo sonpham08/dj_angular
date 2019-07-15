@@ -1,0 +1,15 @@
+<div>
+<div class="login-page">
+<div class="form">
+<form class="login-form">
+  <input type="text" name="username" placeholder="username"/>
+  <span [ngStyle]="{'color': 'red'}">Please input username</span>
+  <input type="password" name="password" placeholder="password" [ngStyle]="{'margin-top': '20px'}"/>
+  <span [ngStyle]="{'color': 'red'}">Please input password</span>
+  <span [ngStyle]="{'color': 'red'}">Username or password wrong</span>
+  <button [ngStyle]="{'margin-top': '20px'}">login</button>
+  <p class="message">Not registered? <a href="/register">Create an account</a></p>
+</form>
+</div>
+</div>
+</div>

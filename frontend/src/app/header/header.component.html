@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default" [ngStyle]="{'background': '#e5101d', 'position': 'fixed', 'top': '0', 'width': '100%', 'z-index': '1000','border-color': '#e5101d', 'border-radius': '0'}">
+  <div class="container-fluid" [ngStyle]="{'padding-left': '0'}">
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngStyle]="{'padding-left': '0'}">
+          <ul class="nav navbar-nav">
+              <li><a [ngStyle]="{'color': 'white', 'padding': '0'}">
+              <img src="static/dataset/lg.png"
+              [ngStyle]="{'height': '50px', 'width': '163px'}" alt="image">
+              </a></li>
+              <li><a [ngStyle]="{'color': 'white'}">Kiểm tra đơn hàng</a></li>
+              <li><a [ngStyle]="{'color': 'white'}"><strong>Trang chủ</strong></a></li>
+          </ul>
+          <div class="search-container">
+              <form class="form-horizontal" role="form">
+              <input 
+              type="text" 
+              placeholder="Nhập tên sản phẩm..." 
+              name="search_product"
+              ref="search_product"/>
+              <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+          </div>
+          <ul class="nav navbar-nav navbar-right" [ngStyle]="{'margin-right': '-25px'}">
+              <li><a 
+                  [ngStyle]="{'color': 'white', 'background': 'rgb(229, 16, 29)'}"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  id="dropdown-see"
+                  ><strong>Sản phẩm vừa xem</strong></a></li>
+              <ul class="dropdown-menu" ref="dropdownsee">
+              </ul>
+              <li [ngStyle]="{'font-size': '35px'}" class="li_icon_cart">
+                  <span 
+                  class="glyphicon glyphicon-shopping-cart icon_cart" 
+                  [ngStyle]="{'cursor': 'pointer'}"
+                  title="Giỏ hàng">
+                  </span>
+                  <span class="num_on_cart"></span>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
