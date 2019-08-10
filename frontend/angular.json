@@ -20,9 +20,9 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               {
-                "glob": "src/favicon.ico", 
-                "input": "src/assets", 
-                "output": "src/assets"
+                "glob": "**/*", 
+                "input": "../backend/static/dataset", 
+                "output": "/dataset/"
               }
             ],
             "styles": [

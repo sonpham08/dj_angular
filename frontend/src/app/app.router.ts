@@ -1,39 +1,31 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { ShowDataComponent } from './show-data/show-data.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './admin//home/home.component';
+import { ManageProductComponent } from './admin/manage-product/manage-product.component';
+import { ManageCategoryComponent } from './admin/manage-category/manage-category.component';
+import { HomeService } from './admin/home/home.service';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
+    HomeService.childRoutes([]),
     {
         path: "",
         component: ShowDataComponent,
     },
     {
-        path: 'header',
-        component: HeaderComponent
-    }, 
-    {
         path: 'login',
         component: LoginComponent
     },
     {
-        path:"**",
-        component: PagenotfoundComponent,
-    }
+        path: 'register',
+        component: RegisterComponent
+    },
+    // {
+    //     path:"**",
+    //     component: PagenotfoundComponent,
+    // }
 ]
-
-@NgModule({
-    imports: [
-        RouterModule.forRoot(
-            appRoutes
-        )
-    ],
-    exports: [
-        RouterModule
-    ]
-})
-
-export class AppRoutingModule{}

@@ -28,7 +28,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.save()
         return user
 
-    def update(self, intance, validated_data):
+    def update(self, instance, validated_data):
         instance.phone = validated_data.get('phone', instance.phone)
         instance.address = validated_data.get('address', instance.address)
         instance.cmnd = validated_data.get('cmnd', instance.cmnd)

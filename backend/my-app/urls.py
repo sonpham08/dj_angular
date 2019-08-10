@@ -53,8 +53,7 @@ urlpatterns = [
     url(r'^cached/swagger', SchemaView.with_ui('swagger', cache_timeout=None), name='cschema-swagger-ui'),
     url(r'^cached/redoc', SchemaView.with_ui('redoc', cache_timeout=None), name='cschema-redoc'),
     url(r'^admin/', admin.site.urls),
-    # url(r'^getData/', get_data),
-    # url(r'^swagger/', schema_view),
+    url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^api/', include('product.urls')),
     url(r'^api/', include('user.urls')),
     url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")

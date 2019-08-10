@@ -1,15 +1,26 @@
 <div>
-<div class="login-page">
-<div class="form">
-<form class="login-form">
-  <input type="text" name="username" placeholder="username"/>
-  <span [ngStyle]="{'color': 'red'}">Please input username</span>
-  <input type="password" name="password" placeholder="password" [ngStyle]="{'margin-top': '20px'}"/>
-  <span [ngStyle]="{'color': 'red'}">Please input password</span>
-  <span [ngStyle]="{'color': 'red'}">Username or password wrong</span>
-  <button [ngStyle]="{'margin-top': '20px'}">login</button>
-  <p class="message">Not registered? <a href="/register">Create an account</a></p>
-</form>
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <input type="text" placeholder="username" formControlName="username" />
+          <span [ngStyle]="{'color': 'red'}"
+                 *ngIf="loginForm.controls.username.dirty &&
+                 loginForm.controls.username.errors?.required"
+                 >Please enter username !</span>
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="password" formControlName="password" [ngStyle]="{'margin-top': '20px'}" />
+          <span [ngStyle]="{'color': 'red'}"
+          *ngIf="loginForm.controls.password.dirty &&
+          loginForm.controls.password.errors?.required">Please enter password !</span>
+        </div>
+        <button [ngStyle]="{'margin-top': '20px'}" [disabled]="!loginForm.valid">login</button>
+        <p class="message">Not registered? <a href="/register">Create an account</a></p>
+      </form>
+    </div>
+  </div>
 </div>
-</div>
+<div class="my-container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 </div>

@@ -4,10 +4,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngStyle]="{'padding-left': '0'}">
           <ul class="nav navbar-nav">
               <li><a [ngStyle]="{'color': 'white', 'padding': '0'}">
-              <img src="static/dataset/lg.png"
+              <img src="dataset/lg.png"
               [ngStyle]="{'height': '50px', 'width': '163px'}" alt="image">
               </a></li>
-              <li><a [ngStyle]="{'color': 'white'}">Kiểm tra đơn hàng</a></li>
               <li><a [ngStyle]="{'color': 'white'}"><strong>Trang chủ</strong></a></li>
           </ul>
           <div class="search-container">
@@ -20,15 +19,10 @@
               <button type="submit"><i class="fa fa-search"></i></button>
               </form>
           </div>
-          <ul class="nav navbar-nav navbar-right" [ngStyle]="{'margin-right': '-25px'}">
+          <ul class="nav navbar-nav navbar-right">
               <li><a 
                   [ngStyle]="{'color': 'white', 'background': 'rgb(229, 16, 29)'}"
-                  class="dropdown-toggle"
-                  data-toggle="dropdown"
-                  id="dropdown-see"
                   ><strong>Sản phẩm vừa xem</strong></a></li>
-              <ul class="dropdown-menu" ref="dropdownsee">
-              </ul>
               <li [ngStyle]="{'font-size': '35px'}" class="li_icon_cart">
                   <span 
                   class="glyphicon glyphicon-shopping-cart icon_cart" 
@@ -37,6 +31,18 @@
                   </span>
                   <span class="num_on_cart"></span>
               </li>
+              <li [ngStyle]="{'display': 'flex', 'margin-left':'26px'}" *ngIf="authenticated == ''">
+                <a [routerLink]="['/login']" routerLinkActive="router-link-active"  [ngStyle]="{'color': 'white', 'padding-right': '0px'}"><strong>Đăng nhập</strong>&nbsp;|&nbsp;</a>
+                <a [routerLink]="['/register']" routerLinkActive="router-link-active"  [ngStyle]="{'color': 'white', 'paddingLeft': '0px'}"> <strong>Đăng ký</strong></a>
+            </li>
+            <li [ngStyle]="{'padding': '9px', 'display': 'flex'}" class="dropdown" *ngIf="authenticated != ''">
+                    <span [ngStyle]="{'margin': '4px'}">{{current.username}}</span>
+                    <ngx-avatar [name]="current.username" size="30" [round]="true"
+                    class="dropdown-toggle" type="button" data-toggle="dropdown"></ngx-avatar>
+                    <ul class="dropdown-menu">
+                        <li><a [routerLink]="['/']" (click)="onLogout()">Log out</a></li>
+                    </ul>
+            </li>
           </ul>
       </div>
   </div>

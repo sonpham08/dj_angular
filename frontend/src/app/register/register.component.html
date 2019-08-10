@@ -1,0 +1,28 @@
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <input type="text" placeholder="name" name="username"/>
+      <span [ngStyle]="{'display': 'none'}" class="">Please input username</span>
+      
+      <input type="text" placeholder="email" name="email" [ngStyle]="{'margin-top': '20px'}"/>
+      <span [ngStyle]="{'display': 'none'}">Please input email valid</span>
+
+      <input type="password" placeholder="password" name="password" [ngStyle]="{'margin-top': '20px'}"/>
+      <span [ngStyle]="{'display': 'none'}">Please input password</span>
+
+      <input type="text" placeholder="fullname" name="fullname" [ngStyle]="{'margin-top': '20px'}"/>
+      <span [ngStyle]="{'display': 'none'}">Please input fullname</span>
+
+      <input type="text" placeholder="phone" name="phone" [ngStyle]="{'margin-top': '20px'}"/>
+      <span [ngStyle]="{'display': 'none'}">Please input phone</span>
+
+      <input type="text" placeholder="address" name="address" [ngStyle]="{'margin-top': '20px'}"/>
+      <span [ngStyle]="{'display': 'none'}">Please input address</span>
+
+      <input type="text" placeholder="ID Card" name="cmnd" [ngStyle]="{'margin-top': '20px'}"/>
+      <span [ngStyle]="{'display': 'none'}">Please input ID Card</span>
+      <button [ngStyle]="{'margin-top': '20px'}">create</button>
+      <p class="message">Already registered? <a href="/login">Sign In</a></p>
+    </form>
+  </div>
+</div>

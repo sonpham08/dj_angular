@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default" [ngStyle]="{'background': '#e5101d', 'position': 'fixed', 'top': '0', 'width': '100%', 'z-index': '1000','border-color': '#e5101d', 'border-radius': '0'}">
+  <div class="container-fluid" [ngStyle]="{'padding-left': '0'}">
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngStyle]="{'padding-left': '0'}">
+            <ul class="nav navbar-nav">
+                <li><a [ngStyle]="{'color': 'white', 'padding': '0'}">
+                    <img src="dataset/lg.png"
+                    [ngStyle]="{'height': '50px', 'width': '224px'}" alt="image">
+                    </a>
+                </li>
+            </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li [ngStyle]="{'display': 'flex', 'margin-left':'26px'}" *ngIf="authenticated == ''">
+                <a [routerLink]="['/login']" routerLinkActive="router-link-active"  [ngStyle]="{'color': 'white', 'padding-right': '0px'}"><strong>Đăng nhập</strong>&nbsp;|&nbsp;</a>
+                <a [routerLink]="['/register']" routerLinkActive="router-link-active"  [ngStyle]="{'color': 'white', 'paddingLeft': '0px'}"> <strong>Đăng ký</strong></a>
+            </li>
+            <li [ngStyle]="{'padding': '9px', 'display': 'flex'}" class="dropdown" *ngIf="authenticated != ''">
+                    <span [ngStyle]="{'margin': '4px'}">son</span>
+                    <ngx-avatar name="son" size="30" [round]="true"
+                    class="dropdown-toggle" type="button" data-toggle="dropdown"></ngx-avatar>
+                    <ul class="dropdown-menu">
+                        <li><a>Đổi mật khẩu</a></li>
+                        <li><a (click)="onLogout()">Log out</a></li>
+                    </ul>
+            </li>
+          </ul>
+      </div>
+  </div>
+</nav>

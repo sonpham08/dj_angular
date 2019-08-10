@@ -1,0 +1,17 @@
+<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" [ngStyle]="{'padding': '0'}">
+  <div class="collapse navbar-collapse navbar-ex1-collapse" [ngStyle]="{'padding': '0'}">
+      <ul class="nav navbar-nav side-nav" [ngStyle]="{'padding-left': '0', 'background': '#e6392a'}">
+          <li>
+              <a [ngStyle]="{'color': 'white', 'padding': '0'}" >
+                  <img src="dataset/lg.png"
+                  [ngStyle]="{'height': '50px', 'width': '225px'}"/>
+              </a>
+          </li>
+          <li id="nav.id" [ngStyle]="{'width': '100%'}" *ngFor="let nav of asideMenu" [routerLink]="[nav.link]" routerLinkActive="router-link-active" >
+              <a 
+              [ngStyle]="{'color': 'white'}"
+              ><i class="nav.icon"></i> {{ nav.label }} <span class="sr-only">(current)</span></a>
+          </li>
+      </ul>
+  </div>
+</div>

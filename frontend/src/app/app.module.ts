@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ShowDataComponent } from './show-data/show-data.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-
-import { AppRoutingModule } from "./app.router";
-
+import { NgxLoadingModule } from 'ngx-loading';
+import { AvatarModule } from 'ngx-avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
   MatButtonModule, 
@@ -22,24 +21,11 @@ import {
   MatListModule,
 } from '@angular/material';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-
-// const appRoutes : Routes = [
-//   // {
-//   //   path: '',
-//   //   component: ShowDataComponent,
-//   //   pathMatch: 'full'
-//   // },
-//   {
-//     path: 'login',
-//     component: LoginComponent
-//   },
-//   {
-//     path: '**',
-//     component: PagenotfoundComponent
-//   },
-// ];
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeModule } from './admin/home/home.module';
+import { appRoutes } from './app.router';
 
 @NgModule({
   declarations: [
@@ -47,15 +33,18 @@ import { HeaderComponent } from './header/header.component';
     ShowDataComponent,
     PagenotfoundComponent,
     LoginComponent,
-    HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     HttpModule,
-    AppRoutingModule,
     BrowserModule,
+    AvatarModule,
+    HomeModule,
+    FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatMenuModule,
@@ -64,6 +53,8 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    NgxLoadingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
     MatButtonModule,
@@ -73,6 +64,7 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    AvatarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
